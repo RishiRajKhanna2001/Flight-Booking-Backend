@@ -4,7 +4,7 @@ const bodyparser=require('body-parser');
 
 
 const {PORT} = require('./config/serverConfig.js');
-const { urlencoded } = require('body-parser');
+
 
 const setupAndStartServer=async function () {
     const app=express();
