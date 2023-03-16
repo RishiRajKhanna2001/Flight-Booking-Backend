@@ -52,7 +52,7 @@ class CityRepository{
  {
  try {
     const city=await City.findByPK(cityId); // findByPK finds through primary key
-
+     return city;
   } catch (error) {
     console.log("something went wrong in repository");
     throw{error};
