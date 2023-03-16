@@ -1,5 +1,5 @@
 const {City} = require("../models/index");  // we are entering into index file bcz. it will going to return all
-                                            //  the models that we are going to include in our models 
+                                            // the models that are included in our models 
 
 class CityRepository{
  async createCity({name})
@@ -20,12 +20,12 @@ class CityRepository{
  async updateCity(cityId,data)
  {
  try {
-    const city=await City.update(data,{
+    const city=await City.update(data,{ // data is the object containing new details
       where:{
         id:cityId
       }
     })
-
+      return city;
   } catch (error) {
     console.log("something went wrong in repository");
     throw{error};
