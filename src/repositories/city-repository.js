@@ -51,7 +51,7 @@ class CityRepository{
  async getCity(cityId)
  {
  try {
-    const city=await City.findByPK(cityId); // findByPK finds through primary key
+    const city=await City.findByPk(cityId); // findByPK finds through primary key
      return city;
   } catch (error) {
     console.log("something went wrong in repository");
