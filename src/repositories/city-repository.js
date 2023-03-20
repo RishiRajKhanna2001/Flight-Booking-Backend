@@ -1,6 +1,6 @@
+const { Op }= require('sequelize');
 const {City} = require("../models/index");  // we are entering into index file bcz. it will going to return all
                                             // the models that are included in our models 
-
 class CityRepository{
  async createCity({name})
  {
@@ -53,6 +53,28 @@ class CityRepository{
  try {
     const city=await City.findByPk(cityId); // findByPK finds through primary key
      return city;
+  } catch (error) {
+    console.log("something went wrong in repository");
+    throw{error};
+  }
+ }
+
+ async getAllCities(filter)  // filter can also be empty
+ {
+ try {
+  if(filter.name)
+  {
+     const cities=await City.findAll({
+      where:{
+        name:{
+          [Op.startsWith]:filter.name
+        }
+      }
+     });
+     return cities;
+  }
+    const cities=await City.findAll(); // findByPK finds through primary key
+     return cities;
   } catch (error) {
     console.log("something went wrong in repository");
     throw{error};
