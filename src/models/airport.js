@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate(models) {  // models access to all models 
       // define association here
       this.belongsTo(models.City,{ // here this belongs to Airport
         foreignKey:'CityId',
